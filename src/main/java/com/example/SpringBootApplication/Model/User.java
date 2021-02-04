@@ -11,14 +11,18 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private final String Name;
-    private final String Vorname;
-    private final String Email;
+    private String Name;
+    private String Vorname;
+    private String Email;
 
     public User(String name, String vorname, String email) {
         this.Name = name;
         this.Vorname = vorname;
         this.Email = email;
+    }
+
+    public User() {
+
     }
 
     public Long getId() {
