@@ -6,3 +6,63 @@ UPDATE TABLE USER SET USERS [42001-200]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "UPDATE TABLE[*] USER SET ""USERS"""; erwartet "identifier"
 Syntax error in SQL statement "UPDATE TABLE[*] USER SET ""USERS"""; expected "identifier"; SQL statement:
 UPDATE TABLE USER SET "USERS" [42001-200]
+2021-02-07 21:31:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE*[*] FROM USER WHERE EMAIL = NULL"; erwartet "identifier"
+Syntax error in SQL statement "DELETE*[*] FROM USER WHERE EMAIL = NULL"; expected "identifier"; SQL statement:
+DELETE* FROM USER WHERE EMAIL = null [42001-200]
+2021-02-07 21:31:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE*[*] FROM USER WHERE EMAIL = ISNULL"; erwartet "identifier"
+Syntax error in SQL statement "DELETE*[*] FROM USER WHERE EMAIL = ISNULL"; expected "identifier"; SQL statement:
+DELETE* FROM USER WHERE EMAIL = ISNULL [42001-200]
+2021-02-07 21:31:47 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE*[*] FROM USER WHERE EMAIL = ""null"""; erwartet "identifier"
+Syntax error in SQL statement "DELETE*[*] FROM USER WHERE EMAIL = ""null"""; expected "identifier"; SQL statement:
+DELETE* FROM USER WHERE EMAIL = "null" [42001-200]
+2021-02-07 21:32:07 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE* FROM USER WHERE EMAIL != [*]'test"
+Syntax error in SQL statement "DELETE* FROM USER WHERE EMAIL != [*]'test"; SQL statement:
+DELETE* FROM USER WHERE EMAIL != 'test [42000-200]
+2021-02-07 21:32:13 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE*[*] FROM USER WHERE EMAIL != 'test'"; erwartet "identifier"
+Syntax error in SQL statement "DELETE*[*] FROM USER WHERE EMAIL != 'test'"; expected "identifier"; SQL statement:
+DELETE* FROM USER WHERE EMAIL != 'test' [42001-200]
+2021-02-07 21:32:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE*[*] FROM USER WHERE EMAIL != 'test'
+
+SELECT * FROM USER"; erwartet "identifier"
+Syntax error in SQL statement "DELETE*[*] FROM USER WHERE EMAIL != 'test'
+
+SELECT * FROM USER"; expected "identifier"; SQL statement:
+DELETE* FROM USER WHERE EMAIL != 'test'
+
+SELECT * FROM USER [42001-200]
+2021-02-07 21:35:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE*[*] FROM USER WHERE EMAIL = IS NULL
+
+SELECT * FROM USER"; erwartet "identifier"
+Syntax error in SQL statement "DELETE*[*] FROM USER WHERE EMAIL = IS NULL
+
+SELECT * FROM USER"; expected "identifier"; SQL statement:
+DELETE* FROM USER WHERE EMAIL = IS NULL
+
+SELECT * FROM USER [42001-200]
+2021-02-07 21:35:47 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE*[*] FROM USER WHERE EMAIL  IS NULL
+
+SELECT * FROM USER"; erwartet "identifier"
+Syntax error in SQL statement "DELETE*[*] FROM USER WHERE EMAIL  IS NULL
+
+SELECT * FROM USER"; expected "identifier"; SQL statement:
+DELETE* FROM USER WHERE EMAIL  IS NULL
+
+SELECT * FROM USER [42001-200]
+2021-02-07 21:46:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "DELETE *[*] FROM USER
+
+SELECT * FROM USER"; erwartet "identifier"
+Syntax error in SQL statement "DELETE *[*] FROM USER
+
+SELECT * FROM USER"; expected "identifier"; SQL statement:
+DELETE * FROM USER
+
+SELECT * FROM USER [42001-200]
