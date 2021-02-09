@@ -15,7 +15,6 @@ public interface UserService {
 
     Optional<User> findById(Long id);
 
-    List<User> getUsersByVorname(String Vorname);
-
+    List<User> findByVornameLike(String Vorname);
 
 }

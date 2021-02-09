@@ -6,12 +6,21 @@
 	},
 	"item": [
 		{
-			"name": "GetUsers",
+			"name": "AddUser",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mustermann\",\r\n    \"vorname\": \"Max\",\r\n    \"email\": \"max@outlook.de\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8000/api/users/",
+					"raw": "http://localhost:8000/api/users/add",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -20,7 +29,28 @@
 					"path": [
 						"api",
 						"users",
-						""
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/users/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"all"
 					]
 				}
 			},
@@ -43,7 +73,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/users/{{id}}",
+					"raw": "http://localhost:8000/api/users/id/{{id}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -52,6 +82,7 @@
 					"path": [
 						"api",
 						"users",
+						"id",
 						"{{id}}"
 					],
 					"query": [
@@ -66,41 +97,12 @@
 			"response": []
 		},
 		{
-			"name": "AddUser",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Wolf\",\r\n    \"vorname\": \"Alex\",\r\n    \"email\": \"den@outlook.de\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "GetUsersByFirstName",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/users/{{vorname}}",
+					"raw": "http://localhost:8000/api/users/first/{{vorname}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -109,7 +111,30 @@
 					"path": [
 						"api",
 						"users",
+						"first",
 						"{{vorname}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsersByLastName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/users/last/{{nachname}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"last",
+						"{{nachname}}"
 					]
 				}
 			},

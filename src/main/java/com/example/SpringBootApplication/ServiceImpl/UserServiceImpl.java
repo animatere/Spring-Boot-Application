@@ -29,8 +29,14 @@ public class UserServiceImpl implements UserService {
 		return userRepo.findById(id);
 	}
 
-	public List<User> getUsersByVorname(String Vorname) {
+	public List<User> findByVornameLike(String Vorname) {
 
-		return userRepo.getUsersByVorname(Vorname);
+		return userRepo.findByVornameLike(Vorname);
 	}
+
+	public List<User> findByNameLike(String Name) {
+
+		return userRepo.findByNameLike(Name);
+	}
+
 }
