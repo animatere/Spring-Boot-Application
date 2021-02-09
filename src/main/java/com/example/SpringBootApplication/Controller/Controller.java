@@ -36,8 +36,8 @@ public class Controller {
     }
 
     @GetMapping(value = "/users/{vorname}", produces = "application/json")
-    public List<User> getUserByFirstName(@PathVariable(value = "vorname") String name) {
-        return userRepo.getUsersByFirstName(name);
+    public List<User> getUsersByVorname(@PathVariable(value = "Vorname") String Vorname) {
+        return userRepo.getUsersByVorname(Vorname);
     }
 
 
