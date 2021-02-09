@@ -1,30 +1,28 @@
 package com.example.SpringBootApplication.Controller;
 
 import com.example.SpringBootApplication.Model.User;
-import com.example.SpringBootApplication.Repository.UserRepository;
+import com.example.SpringBootApplication.ServiceImpl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api")
 public class Controller {
 
     @Autowired
-    private UserRepository userRepo;
+    private UserServiceImpl userRepo;
 
-    @GetMapping("/users")
+
+    @GetMapping(value = "/users", produces = "application/json")
     public List<User> getUsers() {
-        return userRepo.findAll();
+        return userRepo.getList();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping(value = "/users/{id}", produces = "application/json")
     public ResponseEntity<Optional<User>> getUserById(@PathVariable(value = "id") Long id) {
 
         Optional<User> user = userRepo.findById(id);
@@ -32,24 +30,15 @@ public class Controller {
         return ResponseEntity.ok().body(user);
     }
 
-//    @PostMapping("/users")
-//    public User createEmployee(@RequestBody User user) {
-//        return userRepo.save(user);
-//    }
+    @PostMapping(value = "/users", consumes = "application/json", produces = "application/json")
+    public User post(@RequestBody User user) {
+        return userRepo.save(user);
+    }
 
-//    @GetMapping("/users/{vorname}")
-//    public List<User> getUserBySurname(@PathVariable(value = "vorname") String vorname){
-//
-//        List<User> allUsers = userRepo.findAll();
-//        List<User> requestedUsers = new ArrayList<>();
-//
-//        for(User user: allUsers){
-//            if(user.getVorname().equals(vorname)){
-//                requestedUsers.add(user);
-//            }
-//        }
-//
-//        return requestedUsers;
-//    }
+    @GetMapping(value = "/users/{vorname}", produces = "application/json")
+    public List<User> getUserByFirstName(@PathVariable(value = "vorname") String name) {
+        return userRepo.getUsersByFirstName(name);
+    }
+
 
 }

@@ -1,24 +1,20 @@
 package com.example.SpringBootApplication.Service;
 
 import com.example.SpringBootApplication.Model.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class UserService {
+public interface UserService {
 
-    @Autowired
-    JdbcTemplate jtm;
+    User save(User user);
 
-    public List<User> findAll() {
+    List<User> getList();
 
-        String sql = "SELECT * FROM USER";
-        return this.jtm.query(sql, new BeanPropertyRowMapper<>(User.class));
-    }
+    Optional<User> findById(Long id);
 
+    List<User> getUsersByFirstName(String vorname);
 
 }
